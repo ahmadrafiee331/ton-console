@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react';
-import { ButtonLink, DocsIcon16, H1, H2, H3, Overlay, TgIcon } from 'src/shared';
+import { H1, H2, H3, Overlay, TgIcon } from 'src/shared';
 import { Button, Flex, Text, useBreakpointValue } from '@chakra-ui/react';
 import { tGUserStore } from 'src/entities';
 import { observer } from 'mobx-react-lite';
@@ -39,13 +39,11 @@ const LoginPage: FunctionComponent = () => {
                             isLoading={tGUserStore.user$.isLoading}
                             leftIcon={<TgIcon color="constant.white" />}
                             onClick={() => tGUserStore.login()}
+                            size="lg"
                             variant="primary"
                         >
-                            Connect and Try
+                            Connect to Ton Console
                         </Button>
-                        <ButtonLink leftIcon={<DocsIcon16 />} href="/" variant="secondary">
-                            Go to landing
-                        </ButtonLink>
                     </Flex>
                 </Flex>
                 <H3 mb={{ base: '5', md: '7' }} alignSelf={{ base: 'flex-start', md: 'center' }}>
