@@ -41,7 +41,6 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { projectsStore } from 'src/entities';
 import { observer } from 'mobx-react-lite';
-import JoinQuery from 'src/features/analytics/ui/JoinQuery';
 
 const QueryPage: FC<BoxProps> = () => {
     const navigate = useNavigate();
@@ -103,10 +102,6 @@ const QueryPage: FC<BoxProps> = () => {
         }
     }, [prevProjectId, projectId]);
 
-    if (!projectsStore.selectedProject?.capabilities.stats.query) {
-        return <JoinQuery />;
-    }
-
     return (
         <Overlay display="flex" flexDirection="column">
             <Flex align="center" gap="3" mb="4">
@@ -149,7 +144,7 @@ const QueryPage: FC<BoxProps> = () => {
                         size="sm"
                         variant="secondary"
                         zIndex="3"
-                        href={ANALYTICS_LINKS.INTRO}
+                        href={ANALYTICS_LINKS.QUERY.INTRO}
                         isExternal
                     >
                         Console Docs
